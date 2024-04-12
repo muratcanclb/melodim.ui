@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.banner {
+  width: 100%;
+  background-color: #205c39;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+.logo {
+  width: 35px;
+  height: 35px;
+}
+
+.music-list {
+  max-width: auto;
+  margin: 20px auto;
+  padding: 20px;
+}
+.paragrapher{
+    color:black;
+}
+.music-list h1 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-title {
+  flex-grow: 1;
+}
+
+.song-duration {
+  flex-shrink: 0;
+}
+
+.profile-container {
+  max-width: 75px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.profile-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 20%;
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+.song-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 3%;
+}
+
+.song-table th,
+.song-table td {
+  border: 0px solid #ddd;
+  padding: 8px;
+}
+
+.song-table th {
+  background-color: #2f3b34;
+  font-weight: bold;
+}
+
+.song-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.song-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.play-button {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff; /* Yeşil renk */
+  border: none;
+  border-radius: 50%; /* Yuvarlak şekil */
+  cursor: pointer;
+  outline: none; /* Odak çerçevesini kaldır */
+}
+
+/* Görsel efektler */
+.play-button:hover {
+  background-color: #2b5e2d; /* Hovar üzerinde renk değişikliği */
+}
+
+.play-button:active {
+  background-color: #3e8e41; /* Tuşa basıldığında renk değişikliği */
+}
+
+.heart-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.heart-button svg {
+  width: 20px;
+  height: 20px;
+  fill: rgb(247, 140, 140);
+}
+
+.heart-button:hover svg {
+  fill: pink;
+}

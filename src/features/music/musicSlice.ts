@@ -1,17 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { Music } from "../../features/music/types";
 
-interface Music {
-  name: string;
-  type: string;
-  isFavorite: boolean;
-  singer: string;
-  isDeleted: boolean;
-  favoriteId: string;
-  lyrics: string;
-  createdDate: Date;
-  id: string;
-}
 export interface MusicState {
   loading: boolean;
   musicList: Array<Music>;
@@ -23,35 +13,29 @@ const initialState: MusicState = {
   error: undefined,
 };
 
-export const fetchMusic = createAsyncThunk("music/fetchMusic", () => {
-  const res = fetch(
-    "https://66141b0b2fc47b4cf27b9bf3.mockapi.io/api/music"
-  ).then((data) => data.json());
-  return res;
-});
+// export const fetchMusic = createAsyncThunk("music/fetchMusic", () => {
+//   const res = fetch(
+//     "https://66141b0b2fc47b4cf27b9bf3.mockapi.io/api/music"
+//   ).then((data) => data.json());
+//   return res;
+// });
 
 export const musicSlice = createSlice({
   name: "music",
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchMusic.pending, (state) => {
+  reducers: {
+    getMusicStart(state) {
       state.loading = true;
-    });
-    builder.addCase(
-        fetchMusic.fulfilled,
-      (state, action: PayloadAction<Array<Music>>) => {
-        state.loading = false;
-        state.musicList = action.payload;
-      }
-    );
-    builder.addCase(fetchMusic.rejected, (state, action) => {
+      state.error = "null";
+    },
+    getMusicSuccess(state, action: PayloadAction<Music[]>) {
       state.loading = false;
-      state.musicList = [];
-      state.error = action.error.message;
-    });
+      state.musicList = action.payload;
+    },
   },
+  extraReducers: () => {},
 });
 
+export const { getMusicSuccess,getMusicStart } = musicSlice.actions;
 export const userSelector = (state: RootState) => state.musicReducer;
 export default musicSlice.reducer;
