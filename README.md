@@ -12,4 +12,4 @@ Müzik Listesi
 
 
 MATERAL-UI ---> Responsive Bar Add
-| <img width="100px" src="./src/assets/images/screen/bar.png"> | <img src="./src/assets/images/screen/bar-phone.png"> |
+| <img width="400px" height="200px" src="./src/assets/images/screen/bar.png"> | <img height="200px" width="400px" src="./src/assets/images/screen/bar-phone.png"> |
