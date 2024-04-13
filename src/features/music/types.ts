@@ -6,7 +6,8 @@ export interface Music {
   isDeleted: boolean;
   favoriteId: string;
   lyrics: string;
-  createdDate: Date;
+  createdDate: string;
   id: string;
   img:string;
+  hour:string;
 }
