@@ -13,13 +13,6 @@ const initialState: MusicState = {
   error: undefined,
 };
 
-// export const fetchMusic = createAsyncThunk("music/fetchMusic", () => {
-//   const res = fetch(
-//     "https://66141b0b2fc47b4cf27b9bf3.mockapi.io/api/music"
-//   ).then((data) => data.json());
-//   return res;
-// });
-
 export const musicSlice = createSlice({
   name: "music",
   initialState,
@@ -30,12 +23,38 @@ export const musicSlice = createSlice({
     },
     getMusicSuccess(state, action: PayloadAction<Music[]>) {
       state.loading = false;
-      state.musicList = action.payload;
+      action.payload?.map((i) => {
+        const date = new Date();
+
+        const hour = date.toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: false,
+        });
+        console.log(hour, "hour");
+        const cDate = new Date(i.createdDate);
+        const year = cDate.getFullYear();
+        const value = {
+          name: i.name,
+          type: i.type,
+          isFavorite: i.isFavorite,
+          singer: i.singer,
+          isDeleted: i.isDeleted,
+          favoriteId: i.favoriteId,
+          lyrics: i.lyrics,
+          createdDate: year,
+          id: i.id,
+          img: i.img,
+          hour: hour,
+        };
+        state.musicList.push(value);
+      });
     },
   },
   extraReducers: () => {},
 });
 
-export const { getMusicSuccess,getMusicStart } = musicSlice.actions;
+export const { getMusicSuccess, getMusicStart } = musicSlice.actions;
 export const userSelector = (state: RootState) => state.musicReducer;
 export default musicSlice.reducer;
