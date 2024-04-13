@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hook";
-import imgLogo from "../../assets/images/logo/lg.png";
+
 import {
   getMusicSuccess,
   getMusicStart,
@@ -31,12 +31,6 @@ function musicList() {
   }, [data, error, dispatch]);
   return (
     <>
-      <div className="banner">
-        <img className="logo" src={imgLogo}></img> <p>MELODİM</p>
-      </div>
-      <div>
-        
-      </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
